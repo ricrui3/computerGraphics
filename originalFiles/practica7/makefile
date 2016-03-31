@@ -1,0 +1,14 @@
+CC=gcc
+CFLAGS=-c -Wall
+LDFLAGS=
+SOURCES=main.c hello.c factorial.c
+OBJECTS=$(SOURCES:.c=.o)
+EXECUTABLE=hello
+
+all: $(SOURCES) $(EXECUTABLE)
+	
+$(EXECUTABLE): $(OBJECTS) 
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@

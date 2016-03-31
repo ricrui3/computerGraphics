@@ -1,0 +1,5 @@
+2nd practice
+
+In order to make this practice, i had to research a little bit about 3 specific topics: The first one was how to solve the problem of the Vertex2ui function, i couldn't make a good idea on my mind about how two functions could communicate between each other without a shared variable on its parameters, this problem was solved with the friendly reminder of the existence of the global variables. The second one was the research of a good Bresenham's algorithm, even when the last course I made my own code, this wasn't enough good for my current purposes, so, with a little bit of web search and with the correct changes, I was able to complement my opengl library with a great Bresenham's code. Finally, at last but not least was the requirement of the specification about if the code have more than two Vertex2ui functions between glBegin and glEnd, it must keep doing every line until every point are finished or it find an odd Vertex2ui function. I'm not sure if my solution is the most optimal but i'm proud of it.
+
+Despite of those little troubles, I enjoyed too much making this practice, complete it  gave me satisfaction due to my success.

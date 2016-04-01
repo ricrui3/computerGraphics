@@ -10,7 +10,7 @@ void Pixel::setRGB(int cR, int cG, int cB) {
   colorB = cB;
 }
 
-void Pixel::setRGB(Pixel pixel){
+void Pixel::setRGB(Pixel pixel) {
   colorR = pixel.colorR;
   colorG = pixel.colorG;
   colorB = pixel.colorB;

@@ -30,5 +30,5 @@ void createImage(int dim[]){
 	}
 
 	fclose(image);
-	system("eog RndImg.ppm");
+	//system("eog RndImg.ppm");
 }

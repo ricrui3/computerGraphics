@@ -1,10 +1,7 @@
 #include "ImagePPM.h"
-#include "Pixel.h"
-#include <time.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include <iostream>
+//#include <iostream>
 #include <fstream>
 using namespace std;
 

@@ -1,4 +1,4 @@
-#CFLAGS = -Wall -Werror -g
+CFLAGS = -Wall -Werror -g
 
 main: main.cpp ImagePPM.o Pixel.o
 	g++ main.cpp ImagePPM.o Pixel.o $(CFLAGS) -o main.out -O2

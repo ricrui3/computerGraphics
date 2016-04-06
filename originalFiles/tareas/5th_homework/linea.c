@@ -1,20 +1,19 @@
 #include "Naive.c"
 
-int main() {
+int main(int argc, char const *argv[]) {
   FILE *RAWwwr;
   RAWwwr = fopen("octahedron.raw", "r");
 
   int imgCounter = 2, degrees = 0;
   float PointCoord[3][4] = {0};
-  int count, i, j, NoPoints = 0;
-  int focalLenght;
+  int i, NoPoints = 0;
 
   // 3D Transformations---------
   SetIdentityAll();
-  Rotation3Dx(10);
-  Rotation3Dy(10);
-  Rotation3Dz(50);
-  Scaling3D(100, 100, 0);
+  Rotation3Dx(0);
+  Rotation3Dy(1);
+  Rotation3Dz(atoi(argv[1]));
+  Scaling3D(200, 200, 200);
   Translation3D(250, 250, 0);
   PrintMatrix(2);
   printf("\n");

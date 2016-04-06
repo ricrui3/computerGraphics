@@ -1,6 +1,8 @@
 #include "ImagePPM.h"
 #include <stdlib.h>
 #include <fcntl.h>
+#include <sstream>
+#include <string>
 //#include <iostream>
 using namespace std;
 
@@ -44,5 +46,14 @@ void ImagePPM::setRandomValues() {
     for (int j = 0; j < dimY; ++j) {
       pixelMatrix[i][j].setRGB(rand() % 256, rand() % 256, rand() % 256);
     }
+  }
+}
+
+void ImagePPM::readRawFile(char * Name){
+  ifstream model;
+  model.open(Name);
+  int coordinate[3][4];
+  for(string line; getline(model,line);){
+    
   }
 }

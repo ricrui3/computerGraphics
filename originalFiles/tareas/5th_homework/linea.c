@@ -10,10 +10,10 @@ int main(int argc, char const *argv[]) {
 
   // 3D Transformations---------
   SetIdentityAll();
-  Rotation3Dx(0);
-  Rotation3Dy(1);
-  Rotation3Dz(atoi(argv[1]));
-  Scaling3D(200, 200, 200);
+  Rotation3Dx(atoi(argv[1]));
+  Rotation3Dy(atoi(argv[2]));
+  Rotation3Dz(atoi(argv[3]));
+  Scaling3D(100, 100, 200);
   Translation3D(250, 250, 0);
   PrintMatrix(2);
   printf("\n");

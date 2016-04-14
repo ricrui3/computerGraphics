@@ -3,7 +3,9 @@
 #include <fcntl.h>
 #include <sstream>
 #include <string>
-//#include <iostream>
+#include <iostream>
+#include "Coordinate3D.h"
+//#include "Triangulo.h"
 using namespace std;
 
 ImagePPM::ImagePPM(int width, int height) : dimX(width), dimY(height) {
@@ -34,7 +36,7 @@ void ImagePPM::createImage() {
   }
 
   image.close();
-  // system("eog Image.ppm");
+  system("eog Image.ppm");
 }
 
 void ImagePPM::setRandomValues() {
@@ -49,11 +51,33 @@ void ImagePPM::setRandomValues() {
   }
 }
 
-void ImagePPM::readRawFile(char * Name){
+void ImagePPM::readRawFile(char *Name) {
   ifstream model;
   model.open(Name);
-  int coordinate[3][4];
-  for(string line; getline(model,line);){
-    
+  // std::vector<Triangulo> coordinates;
+
+  // Lee los puntos de cada triengulo de un archivo raw
+  for (string line; getline(model, line);) {
+    std::vector<Coordinate3D> coordinatesVector;
+    double coordinate[9];
+
+    // Lee los 9 float de una linea
+    istringstream in(line);
+    string type;
+    in >> coordinate[0] >> coordinate[1] >> coordinate[2] >> coordinate[3] >>
+        coordinate[4] >> coordinate[5] >> coordinate[6] >> coordinate[7] >>
+        coordinate[8];
+
+    // Guarda cada tercia de valores en un objeto coordenada
+    coordinatesVector.push_back(
+        Coordinate3D(coordinate[0], coordinate[1], coordinate[2]));
+    coordinatesVector.push_back(
+        Coordinate3D(coordinate[3], coordinate[4], coordinate[5]));
+    coordinatesVector.push_back(
+        Coordinate3D(coordinate[6], coordinate[7], coordinate[8]));
+
+    cout << coordinatesVector[0].toString() << " "
+         << coordinatesVector[1].toString() << " "
+         << coordinatesVector[2].toString() << endl;
   }
 }

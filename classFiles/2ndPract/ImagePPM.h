@@ -12,11 +12,11 @@ class ImagePPM {
   Pixel lineColor;
 
  public:
-  std::vector<std::vector<Pixel> >  pixelMatrix;
+  std::vector<std::vector<Pixel> > pixelMatrix;
   ImagePPM(int = 100, int = 100);
   void createImage();
   void setRandomValues();
-  void readRawFile(char * Name);
+  void readRawFile(char *Name);
   void setBackgroundColor(Pixel bckgC) { backgroundColor = bckgC; }
   void setLineColor(Pixel lineC) { lineColor = lineC; }
 };

@@ -14,5 +14,6 @@ int main(int argc, char const *argv[]) {
   ImagePPM image(atoi(argv[1]), atoi(argv[2]));
   image.setRandomValues();
   image.createImage();
+  image.readRawFile((char *)"octahedron.raw");
   return 0;
 }

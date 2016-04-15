@@ -2,16 +2,16 @@
 #define TRIANGULO_H_
 #include "Coordinate3D.h"
 
-class Triangulo {
+class Triangle {
  private:
   Coordinate3D coord1;
   Coordinate3D coord2;
   Coordinate3D coord3;
 
  public:
-  Triangulo(Coordinate3D coord1(), Coordinate3D coord2(),
-            Coordinate3D coord3());
-  ~Triangulo();
+  // Triangle(Coordinate3D(), Coordinate3D(), Coordinate3D());
+  Triangle(double[9]);
+  ~Triangle();
 };
 
 #endif

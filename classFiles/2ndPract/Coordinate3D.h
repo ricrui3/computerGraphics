@@ -9,6 +9,7 @@ class Coordinate3D : public Coordinate2D {
 
  public:
   Coordinate3D(double = 0, double = 0, double = 0);
+  void setXYZ(int x, int y, int z);
   double getZ();
   void setZ(double value);
   std::string toString();

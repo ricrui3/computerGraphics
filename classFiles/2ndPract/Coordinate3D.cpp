@@ -15,6 +15,12 @@ double Coordinate3D::getZ() { return zCoord; }
 
 void Coordinate3D::setZ(double value) { zCoord = value; }
 
+void Coordinate3D::setXYZ(int xx, int yy, int zz) {
+  xCoord = xx;
+  yCoord = yy;
+  zCoord = zz;
+}
+
 std::string Coordinate3D::toString() {
   std::string valor =
       "    x: " + itos(xCoord) + " y: " + itos(yCoord) + " z:" + itos(zCoord);

@@ -16,7 +16,7 @@ Coordinate2D: Coordinate2D.cpp
 	g++ Coordinate2D.cpp -c
 
 clean:
-	rm -f $@.out
+	rm -f *.out *.o
 
 clang:
 	clang-format-3.4 -i -style=Google *.h *.cpp

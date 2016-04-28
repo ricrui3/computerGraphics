@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Coordinate3D.h"
 #include "Triangle.h"
+#include "Sphere.h"
 using namespace std;
 
 ImagePPM::ImagePPM(int width, int height) : dimX(width), dimY(height) {
@@ -54,9 +55,9 @@ void ImagePPM::setRandomValues() {
 void ImagePPM::readRawFile(char *Name) {
   ifstream model;
   model.open(Name);
-  std::vector<Triangle> triangles;
+  Sphere sphere;
 
-  // Lee los puntos de cada triengulo de un archivo raw
+  // Lee los puntos de cada triangulo de un archivo raw
   for (string line; getline(model, line);) {
     std::vector<Coordinate3D> coordinatesVector;
     double coordinates[9];
@@ -69,6 +70,7 @@ void ImagePPM::readRawFile(char *Name) {
         coordinates[7] >> coordinates[8];
 
     // Guarda cada tercia de valores en un objeto coordenada
-    triangles.push_back(Triangle(coordinates));
+    sphere.triangulation.push_back(Triangle(coordinates));
   }
+  sphere.generateRAW();
 }

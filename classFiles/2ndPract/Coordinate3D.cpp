@@ -23,7 +23,7 @@ void Coordinate3D::setXYZ(int xx, int yy, int zz) {
 
 std::string Coordinate3D::toString() {
   std::string valor =
-      "    x: " + itos(xCoord) + " y: " + itos(yCoord) + " z:" + itos(zCoord);
+      " " + itos(xCoord) + " " + itos(yCoord) + " " + itos(zCoord);
   return valor;
 }
 

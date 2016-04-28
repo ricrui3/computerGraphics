@@ -1,7 +1,7 @@
 CFLAGS = -Wall -Werror -g
 
-main: main.cpp Coordinate2D.o Coordinate3D.o ImagePPM.o Pixel.o
-	g++ main.cpp Coordinate2D.o Coordinate3D.o ImagePPM.o Pixel.o $(CFLAGS) -o main.out -O2
+main: main.cpp Coordinate2D.o Coordinate3D.o ImagePPM.o Pixel.o Triangle.o Sphere.o
+	g++ main.cpp Sphere.o Triangle.o Coordinate2D.o Coordinate3D.o ImagePPM.o Pixel.o $(CFLAGS) -o main.out -O2
 
 Pixel: Pixel.cpp
 	g++ Pixel.cpp -c
@@ -14,6 +14,12 @@ Coordinate3D: Coordinate3D.cpp
 
 Coordinate2D: Coordinate2D.cpp
 	g++ Coordinate2D.cpp -c
+
+Triangle: Triangle.cpp
+	g++ Triangle.cpp -c
+
+Sphere: Sphere.cpp
+	g++ Sphere.cpp
 
 clean:
 	rm -f *.out *.o

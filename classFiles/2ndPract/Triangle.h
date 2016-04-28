@@ -1,6 +1,8 @@
 #ifndef TRIANGULO_H_
 #define TRIANGULO_H_
 #include "Coordinate3D.h"
+#include <string>
+using namespace std;
 
 class Triangle {
  private:
@@ -12,6 +14,7 @@ class Triangle {
   // Triangle(Coordinate3D(), Coordinate3D(), Coordinate3D());
   Triangle(double[9]);
   ~Triangle();
+  string triangleToString();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "Triangle.h"
+using namespace std;
 
 /*Triangle::Triangle(Coordinate3D c1(), Coordinate3D c2(), Coordinate3D c3()){
         coord1 = c1;
@@ -11,3 +12,9 @@ Triangle::Triangle(double coordinates[9]) {
 }
 
 Triangle::~Triangle() {}
+
+string Triangle::triangleToString() {
+  string stringCoord;
+  stringCoord = coord1.toString() + coord2.toString() + coord3.toString();
+  return stringCoord;
+}

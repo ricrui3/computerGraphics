@@ -1,13 +1,23 @@
 #include "Sphere.h"
 #include <iostream>
 #include <fstream>
+#include "Coordinate3D.h"
 using namespace std;
 
-Sphere::Sphere() {
+Sphere::Sphere(int numR) : numRecursions(numR) {
   cout << "Esfera Creada" << endl;
 }
 
-Sphere::~Sphere(){}
+Sphere::~Sphere() {}
+
+void Sphere::recursiveTriangles() {
+  int numTriangles = triangulation.size();
+  std::vector<Triangle> auxTriangulation;
+  for (int i = 0; i < numTriangles; ++i) {
+    triangulation[i].dividedTriangle(&auxTriangulation);
+  }
+  triangulation = auxTriangulation;
+}
 
 void Sphere::generateRAW() {
   ofstream sphereRAW;

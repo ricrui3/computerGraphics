@@ -42,16 +42,17 @@ string Triangle::triangleToString() {
              mp(c2,c3)
 */
 void Triangle::dividedTriangle(std::vector<Triangle> *triangulation) {
-  //1st Triangle
+  // 1st Triangle
   (*triangulation).push_back(
       Triangle(coord1, midPoint(coord1, coord2), midPoint(coord1, coord3)));
-  //2nd Triangle
+  // 2nd Triangle
   (*triangulation).push_back(
-      Triangle(midPoint(coord1, coord2),coord2, midPoint(coord2, coord3)));
-  //3rd Triangle
-  (*triangulation).push_back(
-      Triangle(midPoint(coord1, coord2),midPoint(coord1, coord3), midPoint(coord2, coord3)));
-  //4th Triangle
+      Triangle(midPoint(coord1, coord2), coord2, midPoint(coord2, coord3)));
+  // 3rd Triangle
+  (*triangulation)
+      .push_back(Triangle(midPoint(coord1, coord2), midPoint(coord1, coord3),
+                          midPoint(coord2, coord3)));
+  // 4th Triangle
   (*triangulation).push_back(
       Triangle(midPoint(coord1, coord3), midPoint(coord2, coord3), coord3));
 }

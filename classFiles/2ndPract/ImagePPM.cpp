@@ -37,7 +37,7 @@ void ImagePPM::createImage() {
   }
 
   image.close();
-  //system("eog Image.ppm");
+  // system("eog Image.ppm");
 }
 
 void ImagePPM::setRandomValues() {
@@ -72,7 +72,8 @@ void ImagePPM::readRawFile(char *Name) {
     // Guarda cada tercia de valores en un objeto coordenada
     sphere.triangulation.push_back(Triangle(coordinates));
   }
-  sphere.recursiveTriangles();
-  sphere.recursiveTriangles();
+  for (int i = 0; i < 5; ++i) {
+    sphere.recursiveTriangles();
+  }
   sphere.generateRAW();
 }

@@ -4,9 +4,7 @@
 #include "Coordinate3D.h"
 using namespace std;
 
-Sphere::Sphere(int numR) : numRecursions(numR) {
-  cout << "Esfera Creada" << endl;
-}
+Sphere::Sphere() {}
 
 Sphere::~Sphere() {}
 

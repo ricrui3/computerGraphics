@@ -4,11 +4,12 @@
 #include <vector>
 
 class Sphere {
-private:
-	int numRecursions;
+ private:
+  int numRecursions;
+
  public:
   std::vector<Triangle> triangulation;
-  Sphere(int = 1);
+  Sphere();
   ~Sphere();
   void recursiveTriangles();
   void generateRAW();

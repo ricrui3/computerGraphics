@@ -3,7 +3,7 @@
 #include <sstream>
 using namespace std;
 
-string itos(int i);
+string dtos(double i);
 
 Coordinate3D::Coordinate3D(double xx, double yy, double zz) {
   xCoord = xx;
@@ -23,11 +23,11 @@ void Coordinate3D::setXYZ(int xx, int yy, int zz) {
 
 std::string Coordinate3D::toString() {
   std::string valor =
-      " " + itos(xCoord) + " " + itos(yCoord) + " " + itos(zCoord);
+      " " + dtos(xCoord) + " " + dtos(yCoord) + " " + dtos(zCoord);
   return valor;
 }
 
-string itos(int i) {
+string dtos(double i) {
   stringstream s;
   s << i;
   return s.str();

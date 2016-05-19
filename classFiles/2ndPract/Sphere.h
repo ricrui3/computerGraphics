@@ -1,11 +1,13 @@
 #ifndef SPHERE_H_
 #define SPHERE_H_
 #include "Triangle.h"
+#include "Coordinate3D.h"
 #include <vector>
 
 class Sphere {
  private:
-  int sphereRadius();
+  int sphereRadius;
+  Coordinate3D sphereCenter;
 
  public:
   std::vector<Triangle> triangulation;

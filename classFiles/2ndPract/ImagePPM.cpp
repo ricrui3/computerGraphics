@@ -52,12 +52,10 @@ void ImagePPM::setRandomValues() {
   }
 }
 
-void ImagePPM::OctahedronRawFile(char *Name) {
-  sphere.readRawFile(Name);
-}
+void ImagePPM::OctahedronRawFile(char *Name) { sphere.readRawFile(Name); }
 
-//De forma recursiva convierte cada triangulo en 4 mas
-void ImagePPM::OctahedronRecursions(int rec){
+// De forma recursiva convierte cada triangulo en 4 mas
+void ImagePPM::OctahedronRecursions(int rec) {
   for (int i = 0; i < rec; ++i) {
     sphere.recursiveTriangles();
     sphere.generateNewRAW();

@@ -1,12 +1,12 @@
 #include "ImagePPM.h"
 #include <stdlib.h>
 #include <fcntl.h>
+#include <fstream>
 #include <sstream>
 #include <string>
 #include <iostream>
 #include "Coordinate3D.h"
 #include "Triangle.h"
-#include "Sphere.h"
 using namespace std;
 
 ImagePPM::ImagePPM(int width, int height) : dimX(width), dimY(height) {
@@ -52,28 +52,14 @@ void ImagePPM::setRandomValues() {
   }
 }
 
-void ImagePPM::readRawFile(char *Name) {
-  ifstream model;
-  model.open(Name);
-  Sphere sphere;
+void ImagePPM::OctahedronRawFile(char *Name) {
+  sphere.readRawFile(Name);
+}
 
-  // Lee los puntos de cada triangulo de un archivo raw
-  for (string line; getline(model, line);) {
-    std::vector<Coordinate3D> coordinatesVector;
-    double coordinates[9];
-
-    // Lee los 9 float de una linea
-    istringstream in(line);
-    string type;
-    in >> coordinates[0] >> coordinates[1] >> coordinates[2] >>
-        coordinates[3] >> coordinates[4] >> coordinates[5] >> coordinates[6] >>
-        coordinates[7] >> coordinates[8];
-
-    // Guarda cada tercia de valores en un objeto coordenada
-    sphere.triangulation.push_back(Triangle(coordinates));
-  }
-  for (int i = 0; i < 5; ++i) {
+//De forma recursiva convierte cada triangulo en 4 mas
+void ImagePPM::OctahedronRecursions(int rec){
+  for (int i = 0; i < rec; ++i) {
     sphere.recursiveTriangles();
+    sphere.generateNewRAW();
   }
-  sphere.generateRAW();
 }

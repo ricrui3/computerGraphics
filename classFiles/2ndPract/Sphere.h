@@ -5,14 +5,16 @@
 
 class Sphere {
  private:
-  int numRecursions;
+  int sphereRadius();
 
  public:
   std::vector<Triangle> triangulation;
   Sphere();
   ~Sphere();
   void recursiveTriangles();
-  void generateRAW();
+  void readRawFile(char *Name);
+  void generateNewRAW();
+  void pointsNormalization();
 };
 
 #endif

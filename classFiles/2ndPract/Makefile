@@ -22,7 +22,7 @@ Sphere: Sphere.cpp
 	g++ Sphere.cpp
 
 clean:
-	rm -f *.out *.o
+	rm -f *.out *.o ./generatedFiles/*
 
 clang:
 	clang-format-3.4 -i -style=Google *.h *.cpp

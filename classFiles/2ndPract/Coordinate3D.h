@@ -12,6 +12,7 @@ class Coordinate3D : public Coordinate2D {
   void setXYZ(int x, int y, int z);
   double getZ();
   void setZ(double value);
+  void scaleCoordinate(double scaleFactor);
   std::string toString();
 };
 

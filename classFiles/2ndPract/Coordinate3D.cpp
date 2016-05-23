@@ -27,6 +27,13 @@ std::string Coordinate3D::toString() {
   return valor;
 }
 
+void Coordinate3D::scaleCoordinate(double scaleFactor) {
+  xCoord *= scaleFactor;
+  yCoord *= scaleFactor;
+  zCoord *= scaleFactor;
+}
+
+// It converts a double variable to an string
 string dtos(double i) {
   stringstream s;
   s << i;

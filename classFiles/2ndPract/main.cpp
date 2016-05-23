@@ -5,9 +5,9 @@ using namespace std;
 
 int main(int argc, char const *argv[]) {
 
-  if (argc != 3) {
+  if (argc != 4) {
     cout << "\nERROR: La forma correcta de ejecutar el programa es: " << argv[0]
-         << " pixelesDeAncho pixelesDeAlto\n" << endl;
+         << " pixelesDeAncho pixelesDeAlto numeroRecursiones\n" << endl;
     exit(0);
   }
 
@@ -15,6 +15,8 @@ int main(int argc, char const *argv[]) {
   image.setRandomValues();
   image.createImage();
   image.OctahedronRawFile((char *)"octahedron.raw");
-  image.OctahedronRecursions(8);
+  image.OctahedronRecursions(atoi(argv[3]));
+  image.sphere.pointsNormalization();
+  image.sphere.generateNewRAW();
   return 0;
 }

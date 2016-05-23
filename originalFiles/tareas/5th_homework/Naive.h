@@ -4,8 +4,8 @@
 
 int point1[1000][2];
 int PoinPos = 0, MaxX, MinX, MaxY, Min;
-#define imgWidth 500
-#define imgHeight 500
+#define imgWidth 1000
+#define imgHeight 1000
 int matrixBuff[imgWidth][imgHeight] = {0};
 
 float Translation2DMatrix[3][3] = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};

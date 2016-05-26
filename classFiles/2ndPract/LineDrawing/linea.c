@@ -19,8 +19,9 @@ int main(int argc, char const *argv[]) {
   Rotation3Dx(atoi(argv[1]));
   Rotation3Dy(atoi(argv[2]));
   Rotation3Dz(atoi(argv[3]));
-  Scaling3D(0.4, 0.4, 0.4);
-  Translation3D(500, 500, 0);
+  //Scaling3D(0.4, 0.4, 0.4);
+  Scaling3D(1, 1, 1);
+  Translation3D(1000, 1000, 0);
   PrintMatrix(2);
   printf("\n");
   //---------------------------

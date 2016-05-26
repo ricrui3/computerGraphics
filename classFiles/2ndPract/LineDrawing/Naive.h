@@ -4,8 +4,8 @@
 
 int point1[1000][2];
 int PoinPos = 0, MaxX, MinX, MaxY, Min;
-#define imgWidth 1000
-#define imgHeight 1000
+#define imgWidth 2000
+#define imgHeight 2000
 int matrixBuff[imgWidth][imgHeight] = {0};
 
 float Translation2DMatrix[3][3] = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
@@ -30,7 +30,8 @@ float ProjMatrix[4][4] = {
     {1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
 
 int k = 0;
-char bgColour[] = "24 116 205 ", lineColour[] = "0 15 255 ";
+char bgColour[] = "255 255 255 ", lineColour[] = "0 0 0 ";
+//char bgColour[] = "24 116 205 ", lineColour[] = "0 15 255 ";
 
 void RAWreading(float point[3][4], FILE *RAWwwr);
 void SetIdentityAll();

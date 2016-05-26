@@ -20,7 +20,7 @@ int main(int argc, char const *argv[]) {
   Rotation3Dy(atoi(argv[2]));
   Rotation3Dz(atoi(argv[3]));
   //Scaling3D(0.4, 0.4, 0.4);
-  Scaling3D(1, 1, 1);
+  Scaling3D(0.9, 0.9, 0.9);
   Translation3D(1000, 1000, 0);
   PrintMatrix(2);
   printf("\n");

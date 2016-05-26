@@ -24,7 +24,6 @@ void Sphere::readRawFile(char *Name) {
   ifstream model;
   model.open(Name);
   int highestPoint = 0;
-  int midPoint = 0;
   int lowestPoint = 0;
 
   // Lee los puntos de cada triangulo de un archivo raw
@@ -42,7 +41,7 @@ void Sphere::readRawFile(char *Name) {
     // Guarda cada tercia de valores en un objeto coordenada
     triangulation.push_back(Triangle(coordinates));
   }
-
+  //It finds the highest and the lowest point in the Y axis
   for (int i = 0; i < 5; ++i) {
     if (triangulation[i].getCoord1()->getY() > highestPoint) {
       highestPoint = triangulation[i].getCoord1()->getY();
@@ -60,10 +59,9 @@ void Sphere::readRawFile(char *Name) {
       lowestPoint = triangulation[i].getCoord3()->getY();
     }
   }
-  cout << "h: " << highestPoint << " l: " << lowestPoint << endl;
   sphereCenter.setY((highestPoint + lowestPoint) / 2);
-  sphereRadius = (highestPoint - midPoint);
-
+  sphereRadius = distanceTwo3dPoints(Coordinate3D(0,0,0), highestPoint);
+  //It finds the rightest and the leftest point
   highestPoint = 0;
   lowestPoint = 0;
   for (int i = 0; i < 5; ++i) {
@@ -83,9 +81,8 @@ void Sphere::readRawFile(char *Name) {
       lowestPoint = triangulation[i].getCoord3()->getX();
     }
   }
-  cout << "h: " << highestPoint << " l: " << lowestPoint << endl;
   sphereCenter.setX((highestPoint + lowestPoint) / 2);
-
+  //It finds the closest and the farthest point
   highestPoint = 0;
   lowestPoint = 0;
   for (int i = 0; i < 5; ++i) {
@@ -105,7 +102,6 @@ void Sphere::readRawFile(char *Name) {
       lowestPoint = triangulation[i].getCoord3()->getZ();
     }
   }
-  cout << "h: " << highestPoint << " l: " << lowestPoint << endl;
   sphereCenter.setZ((highestPoint + lowestPoint) / 2);
 
   cout << sphereCenter.toString() << " sphereRadius: " << sphereRadius << endl;
@@ -128,54 +124,39 @@ void Sphere::generateNewRAW() {
   sphereRAW.close();
 }
 
+// It takes the 3 coordinates of each traingle in the octahedron and normalize
+// them to the radius of the sphere
 void Sphere::pointsNormalization() {
   int numTriangles = triangulation.size();
   double scaleFactor = 1;
   std::vector<Triangle> auxTriangulation;
   for (int i = 0; i < numTriangles; ++i) {
+    // Coordinate #1
     if (distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord1()) !=
         sphereRadius) {
       scaleFactor =
           ((sphereRadius * 100) /
            distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord1())) /
           100;
-      cout << "1.-Distance between points: "
-           << distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord1())
-           << " Scale Factor: " << scaleFactor << endl;
       triangulation[i].getCoord1()->scaleCoordinate(scaleFactor);
-      cout << "-->Distance between points: "
-           << distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord1())
-           << " Scale Factor: " << scaleFactor << endl;
     }
-
+    // Coordinate #2
     if (distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord2()) !=
         sphereRadius) {
       scaleFactor =
           ((sphereRadius * 100) /
            distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord2())) /
           100;
-      cout << "2.-Distance between points: "
-           << distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord2())
-           << " Scale Factor: " << scaleFactor << endl;
       triangulation[i].getCoord2()->scaleCoordinate(scaleFactor);
-      cout << "-->Distance between points: "
-           << distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord2())
-           << " Scale Factor: " << scaleFactor << endl;
     }
-
+    // Coordinate #3
     if (distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord3()) !=
         sphereRadius) {
       scaleFactor =
           ((sphereRadius * 100) /
            distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord3())) /
           100;
-      cout << "3.-Distance between points: "
-           << distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord3())
-           << " Scale Factor: " << scaleFactor << endl;
       triangulation[i].getCoord3()->scaleCoordinate(scaleFactor);
-      cout << "-->Distance between points: "
-           << distanceTwo3dPoints(sphereCenter, *triangulation[i].getCoord3())
-           << " Scale Factor: " << scaleFactor << endl;
     }
   }
 }
